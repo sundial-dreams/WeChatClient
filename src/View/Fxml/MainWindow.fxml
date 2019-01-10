@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="MainWindow" prefHeight="700.0" prefWidth="1400.0" stylesheets="@CSS/MianWindow.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane id="Me" layoutX="1084.0" layoutY="1.0" prefHeight="698.0" prefWidth="315.0" style="-fx-background-color: deepskyblue;">
+         <children>
+            <Label id="myAccount" layoutX="96.0" layoutY="210.0" prefHeight="34.0" prefWidth="138.0" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font name="Forte" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="263.0" prefHeight="31.0" prefWidth="62.0" text="name:" textFill="WHITE">
+               <font>
+                  <Font name="Forte" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="325.0" prefHeight="31.0" prefWidth="70.0" text="address:" textFill="WHITE">
+               <font>
+                  <Font name="Forte" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="392.0" prefHeight="31.0" prefWidth="62.0" text="phone:" textFill="WHITE">
+               <font>
+                  <Font name="Forte" size="17.0" />
+               </font>
+            </Label>
+            <Button id="more" layoutX="232.0" layoutY="446.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="82.0" text="More..." textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Comic Sans MS Italic" size="15.0" />
+               </font></Button>
+            <Label id="myName" layoutX="86.0" layoutY="263.0" prefHeight="31.0" prefWidth="212.0" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Forte" size="17.0" />
+               </font></Label>
+            <Label id="myAddress" layoutX="86.0" layoutY="325.0" prefHeight="34.0" prefWidth="212.0" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Forte" size="17.0" />
+               </font></Label>
+            <Label id="myPhone" layoutX="86.0" layoutY="392.0" prefHeight="31.0" prefWidth="212.0" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Forte" size="17.0" />
+               </font></Label>
+            <Line endX="180.0" layoutX="118.0" layoutY="308.0" startX="-100.0" stroke="WHITE" />
+            <Line endX="180.0" layoutX="118.0" layoutY="371.0" startX="-100.0" stroke="WHITE" />
+            <Line endX="180.0" layoutX="118.0" layoutY="438.0" startX="-100.0" stroke="WHITE" />
+         </children></Pane>
+      <Pane id="bgPane" prefHeight="700.0" prefWidth="1085.0">
+         <children>
+            <Label id="Y_account" layoutX="521.0" layoutY="10.0" prefHeight="24.0" prefWidth="170.0">
+               <font>
+                  <Font name="Forte" size="15.0" />
+               </font>
+            </Label>
+            <ListView id="ChatList" layoutX="318.0" layoutY="42.0" prefHeight="600.0" prefWidth="760.0" />
+            <Button id="individual" layoutX="1169.0" layoutY="50.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 100px;" />
+            <TextField id="input" layoutX="324.0" layoutY="649.0" prefHeight="48.0" prefWidth="689.0" promptText=": Send Something...">
+               <padding>
+                  <Insets left="34.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font></TextField>
+            <Pane layoutX="1169.0" layoutY="50.0" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: transparent;" />
+            <Button id="send" layoutX="1031.0" layoutY="655.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" textFill="WHITE">
+               <font>
+                                    <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+               <effect>
+                  <Blend />
+               </effect>
+            </Button>
+            <Button id="moref" layoutX="1042.0" layoutY="7.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+         </children></Pane>
+      <TextField id="search" layoutX="12.0" layoutY="7.0" prefHeight="31.0" prefWidth="295.0" promptText="输入好友">
+         <font>
+            <Font name="YouYuan" size="15.0" />
+         </font>
+         <padding>
+            <Insets left="32.0" />
+         </padding>
+      </TextField>
+      <ListView id="FirendList" layoutX="4.0" layoutY="42.0" prefHeight="650.0" prefWidth="315.0" />
+      <Button id="maximization" layoutX="1185.0" layoutY="654.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" />
+      <Button id="setting" layoutX="1100.0" layoutY="654.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" />
+      <Button id="minimiser1" layoutX="1267.0" layoutY="654.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" />
+      <Button id="quit1" layoutX="1348.0" layoutY="654.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" />
+   </children>
+</Pane>

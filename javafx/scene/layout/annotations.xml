@@ -1,0 +1,5 @@
+<root>
+    <item name='javafx.scene.layout.BackgroundRepeat'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

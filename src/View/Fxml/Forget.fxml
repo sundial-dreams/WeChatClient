@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="Forget" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" stylesheets="@CSS/Forget.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button id="quit1" layoutX="660.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+      <Button id="minimiser1" layoutX="630.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+      <Label layoutX="14.0" layoutY="11.0" prefHeight="0.0" prefWidth="178.0" text="We Chat" textFill="#ababab">
+         <font>
+            <Font name="Segoe Script Bold" size="36.0" />
+         </font>
+      </Label>
+      <Button id="reset" layoutX="434.0" layoutY="400.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="重置" textFill="WHITE">
+         <effect>
+            <DropShadow color="#00000094" height="11.0" radius="5.0" width="11.0" />
+         </effect></Button>
+      <Button id="cancel" layoutX="143.0" layoutY="400.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="取消" textFill="WHITE">
+         <effect>
+            <DropShadow color="#000000a1" height="11.0" radius="5.0" width="11.0" />
+         </effect></Button>
+      <TextField id="account" layoutX="300.0" layoutY="100.0" prefHeight="40.0" prefWidth="300.0" promptText="输入账号">
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+         <effect>
+            <InnerShadow color="#0000006c" height="11.0" radius="5.0" width="11.0" />
+         </effect></TextField>
+      <TextField id="name" layoutX="300.0" layoutY="160.0" prefHeight="42.0" prefWidth="300.0" promptText="输入姓名">
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+         <effect>
+            <InnerShadow color="#0000005f" height="11.0" radius="5.0" width="11.0" />
+         </effect></TextField>
+      <TextField id="phone" layoutX="300.0" layoutY="220.0" prefHeight="42.0" prefWidth="300.0" promptText="输入电话号">
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+         <effect>
+            <InnerShadow color="#00000071" height="11.0" radius="5.0" width="11.0" />
+         </effect></TextField>
+      <Label layoutX="92.0" layoutY="92.0" prefHeight="53.0" prefWidth="187.0" text="Reset Password :" textFill="#909090">
+         <font>
+            <Font name="Rage Italic" size="28.0" />
+         </font></Label>
+      <PasswordField id="password" layoutX="300.0" layoutY="280.0" prefHeight="40.0" prefWidth="300.0" promptText="设置新密码">
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+         <effect>
+            <InnerShadow color="#00000075" height="11.0" radius="5.0" width="11.0" />
+         </effect></PasswordField>
+      <PasswordField id="rePassword" layoutX="300.0" layoutY="340.0" prefHeight="42.0" prefWidth="300.0" promptText="确认新密码">
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+         <effect>
+            <InnerShadow color="#0000008b" height="11.0" radius="5.0" width="11.0" />
+         </effect></PasswordField>
+      <Label id="accountError" layoutX="324.0" layoutY="82.0" prefHeight="20.0" prefWidth="270.0" textFill="RED">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Label id="nameError" layoutX="324.0" layoutY="140.0" prefHeight="20.0" prefWidth="270.0" textFill="RED">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Label id="phoneError" layoutX="324.0" layoutY="200.0" prefHeight="20.0" prefWidth="270.0" textFill="RED">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Label id="passwordError" layoutX="324.0" layoutY="260.0" prefHeight="20.0" prefWidth="270.0" textFill="RED">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Label id="rePasswordError" layoutX="324.0" layoutY="320.0" prefHeight="20.0" prefWidth="270.0" textFill="RED">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

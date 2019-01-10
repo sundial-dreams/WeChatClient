@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="Dialog" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="450.0" stylesheets="@CSS/Dialog.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="122.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+      <Button id="quit1" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+      <TextField id="UserName" fx:id="UserName" layoutX="50.0" layoutY="220.0" prefHeight="40.0" prefWidth="350.0" promptText="请输入账号">
+         <font>
+            <Font name="SimSun" size="15.0" />
+         </font>
+         <effect>
+            <InnerShadow blurType="GAUSSIAN" color="#a19f9fa1" height="11.22" radius="4.9725" width="10.67" />
+         </effect>
+         <padding>
+            <Insets left="30.0" />
+         </padding></TextField>
+      <PasswordField id="Password" fx:id="Password" layoutX="50.0" layoutY="282.0" prefHeight="40.0" prefWidth="350.0" promptText="请输入密码">
+         <effect>
+            <InnerShadow color="#aba7a7a4" height="11.34" radius="5.2524999999999995" width="11.67" />
+         </effect>
+         <padding>
+            <Insets left="30.0" />
+         </padding></PasswordField>
+      <Button id="register" layoutX="107.0" layoutY="335.0" mnemonicParsing="false" text="没有账号?" textFill="#bcbcbc">
+         <font>
+            <Font name="Yu Gothic Light" size="15.0" />
+         </font></Button>
+      <Button id="getBack" layoutX="238.0" layoutY="335.0" mnemonicParsing="false" text="忘记密码?" textFill="#b6babc">
+         <font>
+            <Font name="Yu Gothic UI Light" size="15.0" />
+         </font></Button>
+      <Button id="enter" layoutX="139.0" layoutY="388.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="登入" textFill="WHITE">
+         <effect>
+            <DropShadow color="#000000a1" height="11.0" radius="5.0" width="11.0" />
+         </effect></Button>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="143.0" text="We Chat" textFill="#9ea4a4">
+         <font>
+            <Font name="Forte" size="33.0" />
+         </font>
+         <effect>
+            <Reflection fraction="0.62" topOpacity="0.84" />
+         </effect>
+      </Label>
+      <Label layoutX="174.0" layoutY="96.0" prefHeight="49.0" prefWidth="80.0" text="Login" textFill="#ababab">
+         <font>
+            <Font name="Forte" size="35.0" />
+         </font>
+         <effect>
+            <Reflection fraction="0.44" topOpacity="0.4" />
+         </effect>
+      </Label>
+      <Button id="minimiser1" layoutX="380.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+      <Label id="accountError" layoutX="65.0" layoutY="200.0" prefHeight="20.0" prefWidth="324.0" textFill="RED">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Label id="passwordError" layoutX="65.0" layoutY="260.0" prefHeight="20.0" prefWidth="324.0" textFill="RED">
+         <font>
+            <Font size="12.0" />
+         </font></Label>
+   </children>
+</Pane>

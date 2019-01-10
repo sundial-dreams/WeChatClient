@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="AlterPerson" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="450.0" stylesheets="@CSS/AlterPerson.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button id="background" disable="true" layoutY="-1.0" mnemonicParsing="false" prefHeight="450.0" prefWidth="450.0" />
+      <Pane id="pane" layoutY="220.0" prefHeight="580.0" prefWidth="450.0">
+         <children>
+            <Button id="head" layoutX="150.0" layoutY="-77.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0">
+               <effect>
+                  <DropShadow color="#0000008c" height="11.0" radius="5.0" width="11.0" />
+               </effect></Button>
+            <Button id="replace" layoutX="331.0" layoutY="45.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="70.0" text="更换" textFill="WHITE">
+               <effect>
+                  <DropShadow color="#000000a1" height="11.0" radius="5.0" width="11.0" />
+               </effect></Button>
+            <Label id="account" layoutX="123.0" layoutY="87.0" prefHeight="40.0" prefWidth="206.0" text="daydream" textAlignment="CENTER" textFill="#b5b5b5">
+               <font>
+                  <Font name="Forte" size="24.0" />
+               </font>
+            </Label>
+            <TextArea id="label" layoutX="85.0" layoutY="146.0" prefHeight="70.0" prefWidth="355.0" promptText="写点什么吧 . . ." wrapText="true">
+               <font>
+                  <Font name="Freestyle Script" size="18.0" />
+               </font>
+            </TextArea>
+            <Label layoutX="14.0" layoutY="141.0" prefHeight="32.0" prefWidth="60.0" text="签名:" textFill="#9a9a9a" />
+            <Label layoutX="14.0" layoutY="246.0" prefHeight="32.0" prefWidth="60.0" text="姓名:" textFill="#9e9e9e" />
+            <TextField id="name" layoutX="85.0" layoutY="247.0" prefHeight="40.0" prefWidth="355.0" promptText="输入您的真实姓名(必填)">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </TextField>
+            <TextField id="age" layoutX="85.0" layoutY="319.0" prefHeight="40.0" prefWidth="177.0" promptText="输入您的年龄(必填)">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </TextField>
+            <RadioButton id="man" layoutX="273.0" layoutY="329.0" mnemonicParsing="false" text="男" textFill="#b5b5b5" />
+            <RadioButton id="woman" layoutX="329.0" layoutY="329.0" mnemonicParsing="false" text="女" textFill="#a8a8a8" />
+            <TextField id="address" layoutX="85.0" layoutY="388.0" prefHeight="40.0" prefWidth="355.0" promptText="输入您的家乡地址">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </TextField>
+            <TextField id="phone" layoutX="85.0" layoutY="457.0" prefHeight="40.0" prefWidth="355.0" promptText="输入您的电话号(必填)">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </TextField>
+            <Button id="submit" layoutX="346.0" layoutY="527.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="70.0" text="保存" textFill="WHITE">
+               <effect>
+                  <DropShadow color="#0000008b" height="11.0" radius="5.0" width="11.0" />
+               </effect></Button>
+            <Button id="cancel" layoutX="249.0" layoutY="527.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="70.0" text="关闭" textFill="WHITE">
+               <effect>
+                  <DropShadow color="#00000090" height="11.0" radius="5.0" width="11.0" />
+               </effect></Button>
+            <Label layoutX="14.0" layoutY="319.0" prefHeight="32.0" prefWidth="60.0" text="年龄:" textFill="#a4a4a4" />
+            <Label layoutX="14.0" layoutY="398.0" prefHeight="32.0" prefWidth="60.0" text="家乡:" textFill="#9e9e9e" />
+            <Label layoutX="14.0" layoutY="467.0" prefHeight="32.0" prefWidth="60.0" text="电话号:" textFill="#a4a4a4" />
+            <Label layoutX="14.0" layoutY="97.0" prefHeight="32.0" prefWidth="60.0" text="账号:" textFill="#ababab" />
+            <Label id="nameError" layoutX="99.0" layoutY="222.0" prefHeight="20.0" prefWidth="300.0" textFill="RED" />
+            <Label id="ageError" layoutX="99.0" layoutY="293.0" prefHeight="20.0" prefWidth="300.0" textFill="RED" />
+            <Label id="phoneError" layoutX="99.0" layoutY="433.0" prefHeight="20.0" prefWidth="300.0" textFill="RED" />
+         </children>
+         <effect>
+            <DropShadow color="#000000a5" height="11.0" radius="5.0" width="11.0" />
+         </effect>
+      </Pane>
+      <Button id="quit1" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+      <Button id="minimiser1" layoutX="380.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+   </children>
+</Pane>

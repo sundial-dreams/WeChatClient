@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="wechat" default="all">
+  
+  
+  <property file="wechat.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
+    <include name="*.ane"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sqljdbc42.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="../mysql-connector-java-5.1.39-bin.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_wechat.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.wechat, clean.artifact.wechat" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.wechat" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.unnamed" value="${basedir}/out/artifacts/unnamed"/>
+    <property name="artifact.output.wechat" value="${basedir}/out/artifacts/WeChat"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.unnamed.jar" value="${artifacts.temp.dir}/unnamed.jar"/>
+    <property name="artifact.temp.output.WeChat" value="${artifacts.temp.dir}/WeChat.jar"/>
+    <taskdef resource="com/sun/javafx/tools/ant/antlib.xml" uri="javafx:com.sun.javafx.tools.ant" classpath="${jdk.home.1.8}/lib/ant-javafx.jar"/>
+  </target>
+  
+  <target name="clean.artifact.wechat" description="clean WeChat artifact output">
+    <delete dir="${artifact.output.wechat}"/>
+  </target>
+  
+  <target name="artifact.unnamed" depends="init.artifacts" description="Build &#39;unnamed&#39; artifact">
+    <property name="artifact.temp.output.unnamed" value="${artifacts.temp.dir}/unnamed"/>
+    <mkdir dir="${artifact.temp.output.unnamed}"/>
+    <jar destfile="${temp.jar.path.unnamed.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain"/>
+    <copy file="${temp.jar.path.unnamed.jar}" tofile="${artifact.temp.output.unnamed}/unnamed.jar"/>
+  </target>
+  
+  <target name="artifact.wechat" depends="init.artifacts, compile.module.wechat" description="Build &#39;WeChat&#39; artifact" xmlns:fx="javafx:com.sun.javafx.tools.ant">
+    <mkdir dir="${artifact.output.wechat}"/>
+    <copy todir="${artifact.temp.output.WeChat}">
+      <fileset dir="${wechat.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.temp.output.WeChat}/META-INF"/>
+    <copy file="${basedir}/META-INF/MANIFEST.MF" tofile="${artifact.temp.output.WeChat}/META-INF/MANIFEST.MF"/>
+    <fx:fileset id="all_but_WeChat" dir="${artifact.temp.output.WeChat}" includes="**/*.jar">
+      <exclude name="WeChat.jar"/>
+    </fx:fileset>
+    <fx:fileset id="all_WeChat" dir="${artifact.temp.output.WeChat}" includes="**/*.jar"/>
+    <fx:application id="WeChat_id" name="WeChat" mainClass="Main.Main" version="1"/>
+    <fx:jar destfile="${artifact.temp.output.WeChat}/WeChat.jar">
+      <fx:application refid="WeChat_id"/>
+      <fileset dir="${artifact.temp.output.WeChat}" excludes="**/*.jar"/>
+      <fx:resources>
+        <fx:fileset refid="all_but_WeChat"/>
+      </fx:resources>
+      <manifest>
+        <attribute name="Implementation-Title" value="WeChat"/>
+        <attribute name="Implementation-Version" value="1"/>
+        <attribute name="Implementation-Vendor" value="dpf"/>
+      </manifest>
+    </fx:jar>
+    <fx:deploy width="600" height="400" updatemode="background" outdir="${artifact.temp.output.WeChat}/deploy" outfile="WeChat">
+      <fx:application refid="WeChat_id"/>
+      <fx:info title="WeChat" vendor="dpf" description="一款聊天软件"/>
+      <fx:resources>
+        <fx:fileset refid="all_WeChat"/>
+      </fx:resources>
+    </fx:deploy>
+    <copy todir="${artifact.output.wechat}">
+      <fileset dir="${artifact.temp.output.WeChat}/deploy"/>
+    </copy>
+    <delete includeemptydirs="true">
+      <fileset dir="${artifact.temp.output.WeChat}"/>
+    </delete>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.unnamed, artifact.wechat" description="Build all artifacts">
+    <mkdir dir="${artifact.output.unnamed}"/>
+    <copy todir="${artifact.output.unnamed}">
+      <fileset dir="${artifact.temp.output.unnamed}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_wechat" default="compile.module.wechat">
+  <dirname property="module.wechat.basedir" file="${ant.file.module_wechat}"/>
+  
+  <property name="module.jdk.home.wechat" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.wechat" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.wechat" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.wechat" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="wechat.output.dir" value="${module.wechat.basedir}/out/production/WeChat"/>
+  <property name="wechat.testoutput.dir" value="${module.wechat.basedir}/out/test/WeChat"/>
+  
+  <path id="wechat.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="wechat.module.production.classpath">
+    <path refid="${module.jdk.classpath.wechat}"/>
+  </path>
+  
+  <path id="wechat.runtime.production.module.classpath">
+    <pathelement location="${wechat.output.dir}"/>
+  </path>
+  
+  <path id="wechat.module.classpath">
+    <path refid="${module.jdk.classpath.wechat}"/>
+    <pathelement location="${wechat.output.dir}"/>
+  </path>
+  
+  <path id="wechat.runtime.module.classpath">
+    <pathelement location="${wechat.testoutput.dir}"/>
+    <pathelement location="${wechat.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.wechat">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.wechat">
+    <patternset refid="excluded.from.module.wechat"/>
+  </patternset>
+  
+  <path id="wechat.module.sourcepath">
+    <dirset dir="${module.wechat.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.wechat" depends="compile.module.wechat.production,compile.module.wechat.tests" description="Compile module WeChat"/>
+  
+  <target name="compile.module.wechat.production" depends="register.custom.compilers" description="Compile module WeChat; production classes">
+    <mkdir dir="${wechat.output.dir}"/>
+    <javac2 destdir="${wechat.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.wechat}/javac">
+      <compilerarg line="${compiler.args.wechat}"/>
+      <bootclasspath refid="wechat.module.bootclasspath"/>
+      <classpath refid="wechat.module.production.classpath"/>
+      <src refid="wechat.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.wechat"/>
+    </javac2>
+    
+    <copy todir="${wechat.output.dir}">
+      <fileset dir="${module.wechat.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.wechat.tests" depends="register.custom.compilers,compile.module.wechat.production" description="compile module WeChat; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.wechat" description="cleanup module">
+    <delete dir="${wechat.output.dir}"/>
+    <delete dir="${wechat.testoutput.dir}"/>
+  </target>
+</project>

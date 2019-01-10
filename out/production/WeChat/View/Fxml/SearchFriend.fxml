@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="SearchFriend" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" stylesheets="@CSS/SearchFriend.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button id="quit1" layoutX="560.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+      <Button id="minimiser1" layoutX="530.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+      <TextField id="textInput" layoutX="211.0" layoutY="52.0" prefHeight="38.0" prefWidth="354.0" promptText="请输入好友账号">
+         <padding>
+            <Insets left="32.0" />
+         </padding></TextField>
+      <ListView id="friendList" layoutX="14.0" layoutY="104.0" prefHeight="223.0" prefWidth="565.0" />
+      <Label layoutX="7.0" layoutY="13.0" prefHeight="46.0" prefWidth="224.0" text="Search For Friend :" textFill="#9e9e9e">
+         <font>
+            <Font name="Forte" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
